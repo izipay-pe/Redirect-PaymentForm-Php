@@ -1,0 +1,255 @@
+:root {
+    --red-izi: #ff4240;
+    --green-izi: #00a09d;
+    --white-izi: #fff;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--white-izi);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    margin: 0;
+}
+
+.App{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px #ccc;
+    /* height: 500px; */
+    height: auto;
+    margin: 3rem auto;
+    text-align: center;
+    width: 1000px;
+}
+.App h2{
+    color: var(--white-izi);
+    background-color: var(--red-izi);
+    border-bottom: 5px solid var(--green-izi);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    padding: 1rem;
+}
+.App h2 img{
+    margin-left: 1rem;
+    width: 110px;
+}
+.List-Product{
+    display: flex;
+}
+
+.Product{
+    box-shadow: 0 8px 16px #ccc;
+    border-radius: 5px;
+    height: auto;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 220px;
+    
+}
+.Product h4{
+    color: var(--red-izi);
+    margin: 0;
+    padding: 0 0.8rem 0.8rem;
+    width: 100%;
+}
+.Product img{
+    height: 180px;
+}
+.Product img{
+    color: var(--red-izi);
+    font-weight: 600;
+    display: block;
+    margin: auto;
+}
+.Product p{
+    color: var(--red-izi);
+    font-weight: 600;
+    display: block;
+    margin: 0.5rem auto;
+}
+.Product p span{
+    font-size: 11px;
+}
+.Product button{
+    background-color: var(--green-izi);
+    border: none;
+    border-radius: 12px;
+    color: var(--white-izi);
+    font-weight: 600;
+    margin: 1rem auto 0;
+    padding: 0.5rem;
+    width: 150px;
+    
+}
+.Product button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.Pay{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.Content-Form-Izipay{
+    /* border: 1px solid #000; */
+    margin: auto;
+    width: 400px;
+}
+.Content-Form-Izipay p{
+    margin: 2rem;
+}
+
+
+.Soporte-Ecommerce{
+    align-items: center;
+    background-color: var(--white-izi);
+    border-radius: 5px;
+    bottom: 30px;
+    box-shadow: 0 8px 16px #ccc;
+    display: flex;
+    height: 120px;
+    padding: 12px 10px 12px 0;
+    position: fixed;
+    outline: none;
+    right: 40px;
+    width: 390px;
+}
+.Soporte-Ecommerce figure{
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px 5px 5px 10px;
+    position: relative;
+    text-align: center;
+}
+.Soporte-Ecommerce figure img{
+    width: 80px;
+}
+.Soporte-Ecommerce div{
+    margin-left: 5px;
+    padding-left: 23px;
+    position: relative;
+}
+.Soporte-Ecommerce div::before{
+    height: 80px;
+    background-color: #000;
+    content: "";
+    left: 0;
+    opacity: .1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+}
+.Soporte-Ecommerce div h4 a{
+    color: var(--red-izi);
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.Soporte-Ecommerce div p{
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #666
+}
+
+/* info payment */
+.content-checkout{
+    display: flex;
+    justify-content: center;
+    margin: 22px auto;
+    padding: 1rem;
+    width: 600px;
+    
+}
+.content-checkout .checkout{
+    width: 300px;
+    margin-left: 30px;
+}
+.content-checkout h3{
+    color: var(--red-izi);
+    margin-bottom: 1rem;
+}
+.content-checkout .control-group{
+    margin: 10px auto;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+.content-checkout .control-group label{
+    align-items: center;
+    color: var(--green-izi);
+    display: flex;
+    font-size: 16px;
+    font-weight: 300;
+    left: 5px;
+    top: 12px;
+    pointer-events: none;
+    position: absolute;
+    transition: all .2s ease;
+}
+.content-checkout .control-group input{
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid var(--green-izi);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    outline: none;
+    width: 100%;
+}
+.content-checkout .control-group input:required{
+    box-shadow: none;
+}
+
+.content-checkout button{
+    appearance: button;
+    background-color: var(--white-izi);
+    border: 1px solid var(--red-izi);
+    border-radius: 3px;
+    color: var(--red-izi);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    height: 42px;
+    margin-top: 2rem;
+    position: relative;
+    width: 190px;
+}
+.content-checkout button:hover{
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 42px;
+    background-color: rgba(255, 94, 94, 0.1);
+    /* opacity: .3; */
+}
+
+.cart{
+    margin-right: 30px;
+    width: 300px;
+}
+
+.content-respuesta{
+    width: 100%;
+}
+.content-respuesta h4{
+    margin-bottom: 10px;
+}
+.content-respuesta .respuesta{
+    box-shadow: 0 8px 16px #ccc;
+    color: var(--red-izi);
+    padding: 10px;
+    text-align: start;
+
+}
