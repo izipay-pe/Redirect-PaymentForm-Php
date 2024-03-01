@@ -17,7 +17,7 @@ En este manual podrás encontrar una guía paso a paso para configurar un proyec
 Este manual está diseñado para ayudarte a comprender el flujo de la integración de la pasarela para ayudarte a aprovechar al máximo tu proyecto y facilitar tu experiencia de desarrollo.
 
 <p align="center">
-  <img src="images/formulario-redireccion.png" alt="Formulario" width="750"/>
+  <img src="https://github.com/izipay-pe/Imagenes/blob/main/formulario_redireccion/Imagen-Formulario-Redireccion.png?raw=true" alt="Formulario" width="750"/>
 </p>
 
 <a name="Requisitos_Previos"></a>
@@ -26,76 +26,47 @@ Este manual está diseñado para ayudarte a comprender el flujo de la integraci�
 
 - Comprender el flujo de comunicación de la pasarela. [Información Aquí](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/javascript/guide/start.html)
 - Extraer credenciales del Back Office Vendedor. [Guía Aquí](https://github.com/izipay-pe/obtener-credenciales-de-conexion)
-- Instalar XAMPP [Aquí](https://www.apachefriends.org/es/index.html)
-- PHP 7.0 o supior
-- Servidor Web
 - Para este proyecto utilizamos la herramienta Visual Studio Code.
   > [!NOTE]
   > Tener en cuenta que, para que el desarrollo de tu proyecto, eres libre de emplear tus herramientas preferidas.
-
+  
 ## 3. Despliegue
 
-### Instalar Live Server
+### Instalar Xampp u otro servidor local compatible con php
 
-Para este ejemplo se utilizó el servidor gratuito de [000webhost](https://www.000webhost.com/), ingrese a su cuenta de [000webhost](https://www.000webhost.com/) y siga los siguientes pasos.
+Xampp, servidor web local multiplataforma que contiene los intérpretes para los lenguajes de script de php. Para instalarlo:
 
-- **Paso 1:** Crearse un nuevo sitio.
+1. Dirigirse a la página web de [xampp](https://www.apachefriends.org/es/index.html)
+2. Descargarlo e instalarlo.
 
-  ![Crear nuevo sitio](https://github.com/izipay-pe/Embedded-PaymentFormT1-Php/blob/main/images/crear-nuevo-sitio.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/izipay-pe/Redirect-PaymentForm-Laravel/main/xampp.png" alt="Xampp" />
+</p>
 
-- **Paso 2:** Crear una URL pública y generar una contraseña de acceso a su sitio.
-
-  ![Nuevo sitio](https://github.com/izipay-pe/Embedded-PaymentFormT1-Php/blob/main/images/nuevo-sitio.png)
-
-- **Paso 3:** Seleccionar File Manager para subir el proyecto.
-
-  ![File Manager](https://github.com/izipay-pe/Embedded-PaymentFormT1-Php/blob/main/images/file-manager.png)
-
-- **Paso 4:** Seleccionar la carpeta `public_html` y subir los archivos del proyecto .zip
-
-  ```sh
-  index.php
-  infoPayment.php
-  pagoFinalizado.php
-  example.configKey.php
-  css/style.css
-  ```
-
-  ![Public Html](https://github.com/izipay-pe/Embedded-PaymentFormT1-Php/blob/main/images/public-html.png)
-
-  Ver el resultado en: https://tusitio.000webhostapp.com
 
 ### Clonar el proyecto:
 
 ```sh
-git clone [https://github.com/izipay-pe/Redirect-PaymentForm-Php.git]
+git clone https://github.com/izipay-pe/Redirect-PaymentForm-Php.git
 ```
 
 ### Ejecutar proyecto
 
-- Paso 1.- Mover el proyecto y descomprimirlo en la carpeta htdocs en la ruta de instalación de Xampp: `C:\xampp\htdocs`
+Mueve el proyecto descargado a la carpeta de instalación de proyectos de xammp `c://xampp/htdocs/[proyecto_laravel]`
 
-  ![proyecto en xampp](/images/captura1.png)
+3. Inicia los servicios de Apache y MySQL desde el panel de control de XAMPP.
+Acceder al Proyecto:
 
-- Paso 2.- Abrir la aplicación XAMPP Control Panel y ejecutar el botón **Start** del modulo de **Apache**, quedando de la siguiente manera:
-
-  ![Xampp control panel](/images/captura2.png)
-
-- Paso 3.- Abrir el navegador web (Chrome, Mozilla, Safari, etc): **http://localhost:80/Redirect-PaymentForm-PHP/** y realizar una compra de prueba.
-
-  ![Pasarela de pago](/images/captura3.png)
-
-- **Error: PaymentFormError = 02 vads_side_id**, este error saldrá porque no se tiene configurado las credenciales de integración en el archivo **./example.configKey.php** .  
-  Estas mismas credenciales se encuentran en su [Back Office Vendedor de Izipay](https://secure.micuentaweb.pe/vads-merchant/) en la siguiente ruta: **Configuracion - Tienda - Claves**  
-  Más información [Ver requisitos previos](#Requisitos_Previos).
-
-  ![error en pasarela](/images/captura%20error.png)
+4. Abre tu navegador e ingresa a la siguiente url con el nombre de la carpeta del proyecto.
+```sh
+http://localhost/[carpeta_proyecto]/
+```
 
 ## 4. Datos de conexión
 
 **Nota**: Reemplace **[CHANGE_ME]** con sus credenciales de `CLAVES` extraídas desde el Back Office Vendedor, ver [Requisitos Previos](#Requisitos_Previos).
 
-- Editar en `example.configKey.php`:
+- Editar el archivo `example.configKey.php`:
 
   ```sh
   //Identificador de su tienda
@@ -110,13 +81,14 @@ git clone [https://github.com/izipay-pe/Redirect-PaymentForm-Php.git]
 
 ## 5. Transacción de prueba
 
-Antes de poner en marcha su pasarela de pago en un entorno de producción, es esencial realizar pruebas para garantizar su correcto funcionamiento.
+Antes de poner en marcha su pasarela de pago en un entorno de producción, es esencial realizar pruebas para garantizar su correcto funcionamiento. 
 
-Puede intentar realizar una transacción utilizando una tarjeta de prueba con la barra de herramientas de depuración (en la parte inferior de la página).
+Puede intentar realizar una transacción utilizando una tarjeta de prueba (en la parte inferior del formulario).
 
 <p align="center">
-  <img src="https://i.postimg.cc/3xXChGp2/tarjetas-prueba.png" alt="Formulario"/>
+  <img src="https://github.com/izipay-pe/Imagenes/blob/main/formulario_redireccion/Imagen-Formulario-Redireccion-testcard.png?raw=true" alt="Formulario" width="450"/>
 </p>
+
 
 - También puede encontrar tarjetas de prueba en el siguiente enlace. [Tarjetas de prueba](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/api/kb/test_cards.html)
 
@@ -127,19 +99,15 @@ Puede intentar realizar una transacción utilizando una tarjeta de prueba con la
 
 La IPN es una notificación de servidor a servidor (servidor de Izipay hacia el servidor del comercio) que facilita información en tiempo real y de manera automática cuando se produce un evento, por ejemplo, al registrar una transacción.
 Los datos transmitidos en la IPN se reciben y analizan mediante un script que el vendedor habrá desarrollado en su servidor.
-
-- Ver manual de implementación de la IPN. [Aquí](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/kb/payment_done.html)
-- Vea el ejemplo de la respuesta IPN con PHP. [Aquí](https://github.com/izipay-pe/Redirect-PaymentForm-IpnT1-PHP)
-- Vea el ejemplo de la respuesta IPN con NODE.JS. [Aquí](https://github.com/izipay-pe/Response-PaymentFormT1-Ipn)
+* Ver manual de implementación de la IPN. [Aquí]( https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/kb/payment_done.html)
+* Vea el ejemplo de la respuesta IPN con JavaScript. [Aquí](https://github.com/izipay-pe/Server-IPN-JavaScript)
 
 ## 7. Personalización
 
-Si deseas aplicar cambios específicos en la apariencia de la pasarela de pago, puedes lograrlo mediante la modificación de código CSS. En este enlace [Código CSS - Incrustado](https://github.com/izipay-pe/Personalizacion-PaymentForm-Incrustado) podrá encontrar nuestro script para un formulario incrustado.
+Si deseas aplicar cambios específicos en la apariencia de la página de pago, puedes lograrlo mediante las opciones de personalización en el Backoffice. En este enlace [Personalización - Página de pago](https://youtu.be/hy877zTjpS0?si=TgSeoqw7qiaQDV25) podrá encontrar un video para guiarlo en la personalización.
 
 ## 8. Consideraciones
-
 Para obtener más información, echa un vistazo a:
-
 - [Formulario incrustado: prueba rápida](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/javascript/quick_start_js.html)
 - [Primeros pasos: pago simple](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/javascript/guide/start.html)
 - [Servicios web - referencia de la API REST](https://secure.micuentaweb.pe/doc/es-PE/rest/V4.0/api/reference.html)
