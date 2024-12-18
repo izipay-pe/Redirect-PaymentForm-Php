@@ -99,7 +99,7 @@ $datos["signature"] = getSignature($datos, KEY);
 ```
 ℹ️ Para más información: [Autentificación](https://secure.micuentaweb.pe/doc/es-PE/form-payment/quick-start-guide/identificarse-durante-los-intercambios.html)
 ### Visualizar formulario
-Para desplegar la pasarela, crea un formulario en html de tipo **POST** con el valor del **ACTION** con la url de servidor de la pasarela de pago y agregale los parámetros de pago como etiquetas `<input type="hidden" name="..." value="...">`. Como se muestra el ejemplo en la ruta del archivo `checkout.php` 
+Para desplegar la pasarela, crea un formulario **HTML** de tipo **POST** con el valor del **ACTION** con la url de servidor de la pasarela de pago y agregale los parámetros de pago como etiquetas `<input type="hidden" name="..." value="...">`. Como se muestra el ejemplo en la ruta del archivo `checkout.php` 
 
 ```php
 // Formulario con los datos de pago
@@ -113,6 +113,8 @@ Para desplegar la pasarela, crea un formulario en html de tipo **POST** con el v
     <button class="btn btn-checkout" type="submit" name="pagar">Pagar</button>
 </form>
 ```
+ℹ️ Para más información: [Formulario de pago en POST](https://secure.micuentaweb.pe/doc/es-PE/form-payment/quick-start-guide/enviar-un-formulario-de-pago-en-post.html)
+
 ## 💳4.2. Analizar resultado del pago
 
 ### Validación de firma
@@ -148,7 +150,7 @@ if (getSignature($_POST, KEY) != $_POST["signature"] ) {
   throw new Exception("Invalid signature");
 }
 ```
-En caso que la validación sea exitosa, se puede extraer los datos del parámetro `vads_trans_status` a través de la variable global de php `$_POST` y mostrar los datos del pago realizado en el archivo `result.php`.
+En caso que la validación sea exitosa, se puede extraer los datos del resultado de pago a través de la variable global de php `$_POST` y mostrarlos. Como se muestra en el archivo `result.php`.
 
 ```php
 <p><strong>Estado:</strong> <?= $_POST['vads_trans_status'] ?></p>
