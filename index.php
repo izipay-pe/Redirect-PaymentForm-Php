@@ -1,152 +1,147 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Form Izipay</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <title>Izipay - Formulario Incrustado</title>
+    <link rel='stylesheet' href='css/style.css' />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/journal/bootstrap.min.css"
+        integrity="sha384-QDSPDoVOoSWz2ypaRUidLmLYl4RyoBWI44iA5agn6jHegBxZkNqgm2eHb6yZ5bYs" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
-    <div id="root">
-        <div class="App">
-            <h2>Pasarela de pago <img src="https://iziweb001.s3.amazonaws.com/webresources/img/logo.png" alt="Logo de Izipay"></h2>
-            <div class="List-Product" id="List-Product">
-                <div class="Product">
-                    <h4>izi Jr</h4><img src="https://www.izipay.pe/_nuxt/dist/img/izi-jr-large.1272137.png" alt="izi Jr">
-                    <input type="hidden" id="amount" value="90">
-                    <p><span>S/</span>90</p><button>Comprar</button>
-                </div>
-                <div class="Product">
-                    <h4>izi android</h4><img src="https://www.izipay.pe/_nuxt/dist/img/izi-android-large.15bbbeb.png" alt="izi android">
-                    <input type="hidden" id="amount" value="100">
-                    <p><span>S/</span>100</p><button>Comprar</button>
-                </div>
-                <div class="Product">
-                    <h4>Gestiona tu negocio</h4><img src="https://www.izipay.pe/_nuxt/dist/img/img-pos.8c27182.png" alt="Gestiona tu negocio">
-                    <input type="hidden" id="amount" value="250">
-                    <p><span>S/</span>250</p><button>Comprar</button>
-                </div>
-                <div class="Product">
-                    <h4>Agente Izipay</h4><img src="https://www.izipay.pe/_nuxt/dist/img/agente-izipay-large.74b5825.png" alt="Agente Izipay">
-                    <input type="hidden" id="amount" value="200">
-                    <p><span>S/</span>200</p><button>Comprar</button>
-                </div>
-            </div>
-            <?php
-                if(isset($_POST["product"])){
-                    $_SESSION["product"] = $_POST['product'];
-                    echo "
-                    <div class='content-checkout'>
-                        <div class='cart'>
-                            <div class='Product'>
-                                <h4>".$_POST['product']."</h4><img src=".$_POST["image"]." alt=".$_POST["image"].">
-                                <p><span>S/</span>". $_POST["amount"]."</p>
+    <nav class="navbar bg-primary" style="background-color: #FF2D46!important;">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand mb-1"><img src="https://iziweb001b.s3.amazonaws.com/webresources/img/logo.png" width="80"></a>
+        </div>
+    </nav>
+    <section class="container">
+        <form class="col-md-12" action="checkout.php" method="POST">
+            <div class="row">
+                <div class="left-column col-md-6">
+                    <section class="customer-details">
+                        <h2>Datos del cliente</h2>
+                        <div class="form-row">
+                            <!-- Nombre -->
+                            <div class="form-group col-md-6">
+                                <label for="firstName">Nombre</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" required>
+                            </div>
+                            <!-- Apellido -->
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Apellido</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" required>
                             </div>
                         </div>
-                        <div class='checkout'>
-                            <h3>Datos del cliente</h3>
-                            <form id='form-control' method='post'> 
-                                <input type='hidden' value=".$_POST["amount"]." />
-                                <input type='hidden' value=".$_POST["image"]." />
-                                <div class='control-group'>
-                                    <label for='firstname'>First Name</label>
-                                    <input type'text' id='firstname' name='firstname' autocomplete='off' required='' value=''>
-                                </div>
-                                <div class='control-group'>
-                                    <label for='lastname'>Last Name</label>
-                                    <input type'text' id='lastname' name='lastname' autocomplete='off' required='' value=''>
-                                </div>
-                                <div class='control-group'>
-                                    <label for='email'>Email</label>
-                                    <input type'emai' id='email' name='email' autocomplete='off' required='' value=''>
-                                </div>
-                                <button>Registrar</button>
-                            </form>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                         </div>
-                    </div>
-                  <script> 
-                    window.scroll({top:400,left:100,behavior:'smooth'})
-                    document.getElementById('form-control').addEventListener('click',(e)=>{
-                    if(e.target.nodeName == 'INPUT'){
-                        let group = e.target.parentElement.children;
-                        group[0].style.top = '-5px';
-                        group[0].style.fontSize = '12px';
-                        e.target.addEventListener('blur',(e)=> {
-                            if(group[1].value.length === 0){
-                                group[0].style.top = '12px';
-                                group[0].style.fontSize = '16px';
-                            }
-                        })
-                    }
-                    document.getElementById('form-control').addEventListener('submit',(e)=> infoPayment(e))
-                })</script>
-                  ";
-                }else{
-                    
-                }
-            ?>
-        </div>
-        <footer class="Soporte-Ecommerce">
-            <figure><img src="https://iziweb001.s3.amazonaws.com/webresources/img/img-ico-call.png" alt="imagen de call center"></figure>
-            <div>
-                <h4><a href="tel:012130808">(01) 213-0808</a><a href="tel:010801-18181">0801-18181</a><a href="mailto:soporteecommerce@izipay.pe" style="color: rgb(0, 160, 157);">SoporteEcommerce@izipay.pe</a></h4>
-                <p>Estaremos felices de ayudarte.</p>
+
+                        <!-- Teléfono -->
+                        <div class="form-group">
+                            <label for="phoneNumber">Teléfono</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="999999999" required>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Tipo de Documento -->
+                            <div class="form-group col-md-4">
+                                <label for="identityType">Tipo de Documento</label>
+                                <select class="form-control" id="identityType" name="identityType">
+                                    <option value="DNI">DNI</option>
+                                    <option value="PS">Pasaporte</option>
+                                    <option value="CE">Carné de Extranjería</option>
+                                </select>
+                            </div>
+
+                            <!-- Documento -->
+                            <div class="form-group col-md-8">
+                                <label for="identityCode">Documento</label>
+                                <input type="text" class="form-control" id="identityCode" name="identityCode" placeholder="Doc. Identidad" required>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="billing-details">
+                        <h2>Datos de envío</h2>
+                        <!-- Dirección -->
+                        <div class="form-group">
+                            <label for="address">Dirección</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Nombre de la calle y número de casa" required>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- País -->
+                            <div class="form-group col-md-6">
+                                <label for="country">País</label>
+                                <select class="form-control" id="country" name="country">
+                                    <option value="PE">Perú</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="CO">Colombia</option>
+                                    <!-- Agrega más países si es necesario -->
+                                </select>
+                            </div>
+
+                            <!-- Estado -->
+                            <div class="form-group col-md-6">
+                                <label for="state">Departamento</label>
+                                <input type="text" class="form-control" id="state" name="state" placeholder="Departamento" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Ciudad -->
+                            <div class="form-group col-md-6">
+                                <label for="city">Distrito</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Distrito" required>
+                            </div>
+
+                            <!-- Código Postal -->
+                            <div class="form-group col-md-6">
+                                <label for="zipCode">Código Postal</label>
+                                <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="15021" required>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="right-column col-md-6">
+                    <section class="customer-details">
+                        <h2>Datos del pago</h2>
+                        <!-- Order ID -->
+                        <div class="form-group">
+                            <label for="orderId">Order-id</label>
+                            <input type="text" class="form-control" id="orderId" name="orderId" placeholder="Order" required>
+                        </div>
+
+                        <!-- Monto -->
+                        <div class="form-group">
+                            <label for="amount">Monto</label>
+                            <input type="number" class="form-control" id="amount" name="amount" placeholder="0.00" step="0.01" min="0" required>
+                        </div>
+
+                        <!--Moneda-->
+                        <div class="form-group">
+                            <label for="currency">Moneda</label>
+                            <select class="form-control" id="currency" name="currency">
+                                <option value="PEN">Soles</option>
+                                <option value="USD">Dólares</option>
+                            </select>
+                        </div>
+                    </section>
+                    <button class="btn btn-primary" type="submit">Pagar</button>
+                </div>
             </div>
-        </footer>
-    </div>
-
-
-    <script>
-        const sendData = (path, parameters, method = 'post') => {
-            const form = document.createElement('form');
-            form.method = method;
-            form.action = path;
-            document.body.appendChild(form);
-
-            for (const key in parameters) {
-                const formField = document.createElement('input');
-                formField.type = 'hidden';
-                formField.name = key;
-                formField.value = parameters[key];
-                form.appendChild(formField);
-            }
-            form.submit();
-        }
-        document.getElementById("List-Product").addEventListener("click", (e) => {
-            if (e.target.nodeName == "BUTTON") {
-                let data = {
-                    product: e.target.parentElement.children[0].innerText,
-                    image: e.target.parentElement.children[1].src,
-                    amount: e.target.parentElement.children[2].value,
-                }
-                e.target.parentElement.parentElement.outerHTML  = "";
-                // sendData('infoPayment.php', data, "post");
-                sendData('index.php', data, "post");
-            }
-        })
-        
-       const infoPayment = (e) =>{
-        e.preventDefault();
-        console.log(e.target.children[2]);
-            let dataPayment = {
-                amount: e.target.children[0].value,
-                image:  e.target.children[1].value,
-                firstName: e.target.children[2].children[1].value,
-                lastName: e.target.children[3].children[1].value,
-                email: e.target.children[4].children[1].value,
-            }
-            sendData('infoPayment.php', dataPayment, "post");
-       }
-    </script>
+        </form>
+    </section>
 </body>
 
 </html>
