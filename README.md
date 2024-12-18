@@ -49,12 +49,12 @@ Xampp, servidor web local multiplataforma que contiene los intérpretes para los
 
 ### Clonar el proyecto
 ```sh
-git clone https://github.com/izipay-pe/Embedded-PaymentForm-Php.git
+git clone https://github.com/izipay-pe/Redirect-PaymentForm-Php.git
 ``` 
 
 ### Datos de conexión 
 
-Reemplace **[CHANGE_ME]** con sus credenciales de `API REST` extraídas desde el Back Office Vendedor, revisar [Requisitos previos](https://github.com/izipay-pe/Readme-Template/tree/main?tab=readme-ov-file#-2-requisitos-previos).
+Reemplace **[CHANGE_ME]** con sus credenciales de `API REST` extraídas desde el Back Office Vendedor, revisar [Requisitos previos](https://github.com/izipay-pe/Redirect-PaymentForm-Php/tree/main?tab=readme-ov-file#-2-requisitos-previos).
 
 - Editar el archivo `keys.example.php` en la ruta raiz del proyecto:
 ```php
@@ -199,7 +199,7 @@ Puede intentar realizar una transacción utilizando una tarjeta de prueba (en la
 
 ## 📡4.3.Pase a producción
 
-Reemplace **[CHANGE_ME]** con sus credenciales de PRODUCCIÓN extraídas desde el Back Office Vendedor, revisar [Requisitos Previos](https://github.com/izipay-pe/Readme-Template/tree/main?tab=readme-ov-file#-2-requisitos-previos).
+Reemplace **[CHANGE_ME]** con sus credenciales de PRODUCCIÓN extraídas desde el Back Office Vendedor, revisar [Requisitos Previos](https://github.com/izipay-pe/Redirect-PaymentForm-Php/tree/main?tab=readme-ov-file#-2-requisitos-previos).
 
 - Editar en `keys.example.php` en la ruta raiz del proyecto:
 ```php
