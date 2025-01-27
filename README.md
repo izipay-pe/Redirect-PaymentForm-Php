@@ -70,7 +70,7 @@ define("KEY", "~ CHANGE_ME_KEY ~");
 
 1. Mover el proyecto y descomprimirlo en la carpeta htdocs en la ruta de instalación de Xampp: `C://xampp/htdocs/[proyecto_php]`
 
-2.  Abrir el navegador web(Chrome, Mozilla, Safari, etc) con el puerto 80 que abrió xampp : `http://localhost:80/[nombre_de_proyecto]`.
+2.  Abrir el navegador web(Chrome, Mozilla, Safari, etc) con el puerto 80 que abrió xampp : `http://localhost/[nombre_de_proyecto]`
 
 ## 🔗4. Pasos de integración
 
