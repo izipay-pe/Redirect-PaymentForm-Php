@@ -233,7 +233,7 @@ define("SHOP_ID", "~ CHANGE_ME_USER_ID ~");
 define("KEY", "~ CHANGE_ME_KEY ~");
 ```
 
-- Editar el archivo `keys.example.php`, cambia el parámetro `vads_ctx_mode` a `PRODUCTION` y la ruta de `vads_url_success`:
+- Editar el archivo `keys.example.php`, cambia el parámetro `vads_ctx_mode` a `PRODUCTION` y la ruta de `vads_url_return`:
 ```php
   $newParams = array(
     "vads_action_mode" => "INTERACTIVE",
