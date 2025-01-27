@@ -1,0 +1,84 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif!important;
+  background-color: #ececec!important;
+}
+
+h2 {
+  font-size: 18px !important;
+  color    : #333;
+}
+
+li {
+  padding-right: 5px;
+  font-weight: 700;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+.container {
+  border-radius: 4px;
+}
+
+.left-column,
+.right-column,
+.center-column {
+  flex   : 1;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.customer-details,
+.billing-details,
+.payment-form,
+.result-form {
+  background-color: white;
+  margin-bottom   : 20px;
+  padding         : 20px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-flow: column;
+    min-width: 80%;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  }
+
+.form-control {
+  font-size: 0.8rem!important;
+  padding: 5px 10px!important;
+  height: auto;
+}
+  
+.form-group {
+  margin-bottom: 10px!important;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #FF2D46!important;
+  height: 50px;
+}
+
+pre {
+  background-color: #000000;
+  color: white!important;
+}
+
+#micuentawebstd_rest_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+details summary h2 {
+  display: inline;
+  margin: 0;
+}
